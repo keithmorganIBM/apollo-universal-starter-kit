@@ -10,7 +10,6 @@ RUN mkdir -p ${APP_DIR}/build && \
     mkdir -p /home/node/.cache/yarn && \
     chown node:node -R ${APP_DIR} /home/node
 
-USER node
 ENV NODE_ENV="development"
 RUN yarn && yarn seed
 
@@ -18,4 +17,5 @@ EXPOSE 3000
 
 ENTRYPOINT ["/sbin/tini", "--"]
 
+USER node
 CMD ["yarn", "start"]

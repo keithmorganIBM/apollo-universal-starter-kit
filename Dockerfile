@@ -1,7 +1,7 @@
 FROM node:10.15.3-alpine
 
 RUN apk update
-RUN apk add --no-cache tini git
+RUN apk add --no-cache tini git yarn=2.1.1
 
 WORKDIR /home/node/app
 

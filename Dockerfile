@@ -11,5 +11,11 @@ RUN mkdir -p ${APP_DIR}/build && \
     chown node:node -R ${APP_DIR} /home/node
 
 USER node
+ENV NODE_ENV="development"
+RUN cd ${APP_DIR} && yarn && yarn seed
+
+EXPOSE 3000
 
 ENTRYPOINT ["/sbin/tini", "--"]
+
+CMD ["yarn", "start"]

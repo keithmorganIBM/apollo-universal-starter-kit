@@ -1,7 +1,8 @@
 FROM node:10.15.3-alpine
 
 RUN apk update
-RUN apk add --no-cache tini git yarn=2.1.1
+RUN apk add --no-cache tini git
+RUN apk add --no-cache yarn --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community" 
 
 WORKDIR /home/node/app
 

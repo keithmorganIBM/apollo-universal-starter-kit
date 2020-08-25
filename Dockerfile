@@ -11,6 +11,8 @@ RUN mkdir -p ${APP_DIR}/build && \
     chown node:node -R ${APP_DIR} /home/node
 
 ENV NODE_ENV="development"
+RUN pwd
+RUN ls -al
 RUN yarn && yarn seed
 
 EXPOSE 3000

@@ -1,7 +1,7 @@
 FROM node:10.15.3-alpine
 
 RUN apk update
-RUN apk add --no-cache tini git
+RUN apk add --no-cache tini git yarn
 
 ARG APP_DIR
 
@@ -12,7 +12,7 @@ RUN mkdir -p ${APP_DIR}/build && \
 
 USER node
 ENV NODE_ENV="development"
-RUN cd ${APP_DIR} && yarn && yarn seed
+RUN yarn && yarn seed
 
 EXPOSE 3000
 

@@ -26,5 +26,5 @@ jobs:
     - uses: IBM/satellite-config-actions@v1
       with:
         apikey: ${{ secrets.IBM_STAGE_APIKEY }}
-        filename: 'satellite.yml'
+        filename: './satellite.yml'
         channel_id: 'c190b7f3-0c29-427c-95b1-394cbafd6970'

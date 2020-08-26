@@ -7,14 +7,9 @@ on:
     branches: [ master ]
 
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
     - name: Build and push Docker images
@@ -24,4 +19,12 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: keithmorganibm/apollotest
         tags: latest
-        tag_with_sha: true   
+        tag_with_sha: true  
+  update_IBM_satellite:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: IBM/satellite-config-actions@v1
+      with:
+        apikey: ${{ secrets.IBM_STAGE_APIKEY }}
+        filename: 'satellite.yml'
+        channel_id: 'c190b7f3-0c29-427c-95b1-394cbafd6970'

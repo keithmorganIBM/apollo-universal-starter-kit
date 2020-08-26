@@ -23,8 +23,15 @@ jobs:
   update_IBM_satellite:
     runs-on: ubuntu-latest
     steps:
-    - uses: IBM/satellite-config-actions@v1
-      with:
-        apikey: ${{ secrets.IBM_STAGE_APIKEY }}
-        filename: './satellite.yml'
-        channel_id: 'c190b7f3-0c29-427c-95b1-394cbafd6970'
+      - uses: actions/checkout@v1
+      - name: Check where I am
+        run: |
+          pwd
+      - name: SHow files
+        run: |
+          ls -al
+      - uses: IBM/satellite-config-actions@v1
+        with:
+          apikey: ${{ secrets.IBM_STAGE_APIKEY }}
+          filename: './satellite.yml'
+          channel_id: 'c190b7f3-0c29-427c-95b1-394cbafd6970'

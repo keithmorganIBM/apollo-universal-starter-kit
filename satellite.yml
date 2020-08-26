@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apollotest
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: apollotest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apollotest
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apollotest
+  template:
+    metadata:
+      labels:
+        app: apollotest
+    spec:
+      containers:
+      - name: apollotest
+        image: keithmorganibm/apollotest:latest
+        ports:
+        - containerPort: 8080

@@ -17,13 +17,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Build and push docker image
-      uses: docker/build-push-action@v1
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1.1.0
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: keithmorganibm/apollotest
         tags: latest
-        tag_with_sha: true
-        path: apollotest
-     
+        tag_with_sha: true   

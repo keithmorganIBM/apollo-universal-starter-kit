@@ -36,4 +36,4 @@ jobs:
           tokenHost: https://iam.test.cloud.ibm.com/identity/token
           apikey: ${{ secrets.IBM_STAGE_APIKEY }}
           filename: './satellite.yml'
-          channel_id: 'c190b7f3-0c29-427c-95b1-394cbafd6970'
+          channelUuid: 'c190b7f3-0c29-427c-95b1-394cbafd6970'

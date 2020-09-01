@@ -27,7 +27,7 @@ jobs:
       - name: Check where I am
         run: |
           pwd
-      - name: SHow files
+      - name: Show my files
         run: |
           ls -al
       - uses: IBM/satellite-config-upload-action@v1alpha1

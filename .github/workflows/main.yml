@@ -30,7 +30,7 @@ jobs:
       - name: Show my files
         run: |
           ls -al
-      - uses: IBM/satellite-config-upload-action@v1alpha1
+      - uses: IBM/satellite-config-upload-action@v1alpha4
         with:
           satelliteHost: https://api.razee.test.cloud.ibm.com/graphql
           tokenHost: https://iam.test.cloud.ibm.com/identity/token
